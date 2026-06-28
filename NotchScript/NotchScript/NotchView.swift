@@ -14,6 +14,9 @@ struct NotchView: View {
     @Binding var auto: Bool
     @Binding var playing: Bool
     @Binding var speed: Double
+    @Binding var fontSize: Int
+    @Binding var color: Color
+    
     var body: some View {
         let formatedScript = script.isEmpty ? ["Please enter your script."] : script.components(separatedBy: .newlines)
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
@@ -23,10 +26,12 @@ struct NotchView: View {
         ZStack {
             ScrollViewReader { proxy in
                 ScrollView {
-                    VStack(spacing: 10) {
+                    VStack(spacing: 5) {
                         ForEach(Array(formatedScript.enumerated()), id: \.offset) { offset, line in
                             Text(line)
-                                .font(.title2.bold())
+                                .font(.system(size: CGFloat(fontSize), weight: .bold))
+                                .lineLimit(nil)
+                                .foregroundStyle(color)
                                 .frame(width: 200, height: 50)
                                 .id(offset)
                                 .opacity(index == offset ? 1.0 : 0.5)
@@ -52,6 +57,15 @@ struct NotchView: View {
                     if index > 0 {
                         withAnimation {
                             index -= 1
+                        }
+                        return .handled
+                    }
+                    return .ignored
+                }
+                .onKeyPress(.tab) {
+                    if index > 0 {
+                        withAnimation {
+                            index = 0
                         }
                         return .handled
                     }
