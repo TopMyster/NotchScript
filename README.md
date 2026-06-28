@@ -1,5 +1,5 @@
 # NotchScript
-### Read the Notes. Watch the Camera
+### Read the Notes. Look at the Camera
 
 NotchScript moves your meeting notes and scripts to the notch, keeping your eyes on the camera. It's a more discrete and polite wat to read your script during a meeting.  
 
