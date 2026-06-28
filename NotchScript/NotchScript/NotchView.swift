@@ -31,6 +31,7 @@ struct NotchView: View {
                             Text(line)
                                 .font(.system(size: CGFloat(fontSize), weight: .bold))
                                 .lineLimit(nil)
+                                .multilineTextAlignment(.center)
                                 .foregroundStyle(color)
                                 .frame(width: 200, height: 50)
                                 .id(offset)
