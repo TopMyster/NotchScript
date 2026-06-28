@@ -62,7 +62,7 @@ struct NotchView: View {
                     }
                     return .ignored
                 }
-                .onKeyPress(.tab) {
+                .onKeyPress(.delete) {
                     if index > 0 {
                         withAnimation {
                             index = 0
@@ -70,6 +70,13 @@ struct NotchView: View {
                         return .handled
                     }
                     return .ignored
+                }
+                .onKeyPress(.tab) {
+                    withAnimation {
+                        auto.toggle()
+                        playing.toggle()
+                    }
+                    return .handled
                 }
                 .onReceive(timer) { _ in
                     if auto && playing {

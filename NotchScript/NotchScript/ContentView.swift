@@ -42,7 +42,7 @@ struct ContentView: View {
                                 .foregroundStyle(color)
                         }
                     }
-                    Toggle("Enable auto", isOn: $auto)
+                    Toggle("Auto Mode", isOn: $auto)
                     Group {
                         Button(playing ? "Pause" : "Play") {
                             playing.toggle()
