@@ -62,7 +62,7 @@ struct NotchView: View {
                     }
                     return .ignored
                 }
-                .onKeyPress(.delete) {
+                .onKeyPress(.downArrow) {
                     if index > 0 {
                         withAnimation {
                             index = 0
