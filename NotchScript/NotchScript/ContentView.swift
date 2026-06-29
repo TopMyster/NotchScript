@@ -20,6 +20,8 @@ struct ContentView: View {
             TextEditor(text: $script)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .font(.system(size: 14))
+                .clipShape(.rect(cornerRadius: 5))
+                
             ZStack {
                 HStack(spacing: 15) {
                     HStack(spacing: 5) {
