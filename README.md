@@ -1,7 +1,9 @@
 # NotchScript
-### Read the Notes. Watch the Camera
+### Read the Notes. Look at the Camera
 
 NotchScript moves your meeting notes and scripts to the notch, keeping your eyes on the camera. It's a more discrete and polite wat to read your script during a meeting.  
+
+https://github.com/user-attachments/assets/8aa970d6-523a-4597-a25b-4bb8ee130c2a
 
 ## Features
  - macOS Native 
@@ -13,7 +15,7 @@ NotchScript moves your meeting notes and scripts to the notch, keeping your eyes
 ## Shortcuts*
  - Next Line - ```space```
  - Previous Line - ```leftArrow```
- - Restart Script - ```delete```
+ - Restart Script - ```downArrow```
  - Auto Mode - ```tab```
 
 <i>*You must be selected the Dynamic Notch to use the shortcuts</i>
