@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var script: String
-    @Binding var auto: Bool
     @Binding var playing: Bool
     @Binding var speed: Double
     @Binding var fontSize: Int
@@ -20,15 +19,17 @@ struct ContentView: View {
             TextEditor(text: $script)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .font(.system(size: 14))
-                .clipShape(.rect(cornerRadius: 5))
+                .padding(10)
+                .background(.white, in: .rect(cornerRadius: 10))
                 
             ZStack {
                 HStack(spacing: 15) {
                     HStack(spacing: 5) {
                         Text("Font size:")
-                        TextField("17pt", value: $fontSize, format: .number)
+                        TextField("17", value: $fontSize, format: .number)
                             .frame(width: 50)
                     }
+                        .disabled(playing)
                     HStack(spacing: 5) {
                         Menu {
                             Button("White") { color = .white }
@@ -40,23 +41,25 @@ struct ContentView: View {
                             Button("Yellow") { color = .yellow }
                             Button("Green") { color = .green }
                         } label: {
-                            Label("Text Color", systemImage: "")
+                            Label("Text Color", systemImage: "circle.fill")
                                 .foregroundStyle(color)
                         }
                     }
-                    Toggle("Auto Mode", isOn: $auto)
+                        .disabled(playing)
                     Group {
-                        Button(playing ? "Pause" : "Play") {
-                            playing.toggle()
-                        }
                         VStack(spacing: 5) {
                             Slider(value: $speed, in: 1...10, step: 1)
+                                .disabled(playing)
 
                             Text("1 - 10 Seconds")
                                 .foregroundStyle(.secondary)
                         }
+                        Button(playing ? "Pause" : "Play", systemImage: playing ? "pause.fill" : "play.fill") {
+                            playing.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        
                     }
-                    .disabled(!auto)
                 }
                 .padding()
             }

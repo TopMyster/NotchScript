@@ -11,7 +11,6 @@ internal import Combine
 struct NotchView: View {
     @Binding var script: String
     @State private var index: Int = 0
-    @Binding var auto: Bool
     @Binding var playing: Bool
     @Binding var speed: Double
     @Binding var fontSize: Int
@@ -74,13 +73,12 @@ struct NotchView: View {
                 }
                 .onKeyPress(.tab) {
                     withAnimation {
-                        auto.toggle()
                         playing.toggle()
                     }
                     return .handled
                 }
                 .onReceive(timer) { _ in
-                    if auto && playing {
+                    if playing {
                         if index < (formatedScript.count - 1) {
                             withAnimation {
                                 index += 1

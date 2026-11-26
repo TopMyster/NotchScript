@@ -19,13 +19,13 @@ struct NotchScriptApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(script: $script, auto: $auto, playing: $playing, speed: $speed, fontSize: $fontSize, color: $color)
+            ContentView(script: $script, playing: $playing, speed: $speed, fontSize: $fontSize, color: $color)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .containerBackground(.ultraThinMaterial, for: .window)
                 .onAppear {
                     let notch = DynamicNotch {
                         VStack(alignment: .center) {
-                            NotchView(script: $script, auto: $auto, playing: $playing, speed: $speed, fontSize: $fontSize, color: $color)
+                            NotchView(script: $script, playing: $playing, speed: $speed, fontSize: $fontSize, color: $color)
                         }
                     }
                     Task {
